@@ -35,3 +35,39 @@ Services  → walls
 Apis      → roof
 Tests     → inspection after everything is built
 ```
+
+### In 'ArcTestsData.csproj' add the following
+```
+<ItemGroup>
+    <AssemblyAttribute Include="System.Runtime.CompilerServices.InternalsVisibleTo">
+      <_Parameter1>ArcTestsServices</_Parameter1>
+    </AssemblyAttribute>
+    <AssemblyAttribute Include="System.Runtime.CompilerServices.InternalsVisibleTo">
+      <_Parameter1>ArcTests</_Parameter1>
+    </AssemblyAttribute>
+  </ItemGroup>
+```
+
+### Visibility 
+
+| Type | Modifier | Reason |
+|---|---|---|
+| `Entity` | `internal` | Never leaves data layer |
+| `ProductEntity` | `internal` | Never leaves data layer |
+| `OrderEntity` | `internal` | Never leaves data layer |
+| `IRepository<T>` | `internal` | Never leaves data layer |
+| `ProductRepository` | `internal` | Never leaves data layer |
+| `OrderRepository` | `internal` | Never leaves data layer |
+| `IProductService` | `public` | API needs to see this |
+| `IOrderService` | `public` | API needs to see this |
+| `ProductService` | `internal` | API uses it via interface only |
+| `OrderService` | `internal` | API uses it via interface only |
+| `ProductDto` | `public` | API needs to see this |
+| `OrderDto` | `public` | API needs to see this |
+
+The boundary is here:
+```
+ArcTestsData  →  everything internal (InternalsVisibleTo grants Services access)
+ArcTestsServices  →  interfaces and DTOs public, service classes internal
+ArcTestsApis  →  only sees public interfaces and DTOs
+```

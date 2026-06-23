@@ -10,10 +10,12 @@
 using System;
 using System.Reflection;
 
+[assembly: System.Runtime.CompilerServices.InternalsVisibleTo("ArcTestsServices")]
+[assembly: System.Runtime.CompilerServices.InternalsVisibleTo("ArcTests")]
 [assembly: System.Reflection.AssemblyCompanyAttribute("ArcTestsData")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+2307781e3814ba9328b90cf9e41d05066c26c8f7")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+9a3cd478159a6d54835c5190b383c72e637a6d27")]
 [assembly: System.Reflection.AssemblyProductAttribute("ArcTestsData")]
 [assembly: System.Reflection.AssemblyTitleAttribute("ArcTestsData")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
