@@ -86,3 +86,6 @@ ArcTestsData  →  everything internal (InternalsVisibleTo grants Services acces
 ArcTestsServices  →  interfaces and DTOs public, service classes internal
 ArcTestsApis  →  only sees public interfaces and DTOs
 ```
+
+### Detailed Explaination 
+[Notion Notes](https://www.notion.so/Architecture-Tests-3877a1b71e4180aba237daa5e8d2931f?source=copy_link)
