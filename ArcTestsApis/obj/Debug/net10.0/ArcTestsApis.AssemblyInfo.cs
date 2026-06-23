@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("ArcTestsApis")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+9a3cd478159a6d54835c5190b383c72e637a6d27")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+14e9c03c3e9d74d14328a6c11436d314dd9b55e0")]
 [assembly: System.Reflection.AssemblyProductAttribute("ArcTestsApis")]
 [assembly: System.Reflection.AssemblyTitleAttribute("ArcTestsApis")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

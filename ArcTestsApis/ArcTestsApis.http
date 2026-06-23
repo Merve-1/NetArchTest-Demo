@@ -1,6 +1,0 @@
-@ArcTestsApis_HostAddress = http://localhost:5078
-
-GET {{ArcTestsApis_HostAddress}}/weatherforecast/
-Accept: application/json
-
-###

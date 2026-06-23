@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("ArcTests")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+2307781e3814ba9328b90cf9e41d05066c26c8f7")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+14e9c03c3e9d74d14328a6c11436d314dd9b55e0")]
 [assembly: System.Reflection.AssemblyProductAttribute("ArcTests")]
 [assembly: System.Reflection.AssemblyTitleAttribute("ArcTests")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

@@ -40,12 +40,27 @@ Tests     → inspection after everything is built
 ```
 <ItemGroup>
     <AssemblyAttribute Include="System.Runtime.CompilerServices.InternalsVisibleTo">
-      <_Parameter1>ArcTestsServices</_Parameter1>
+        <_Parameter1>ArcTestsServices</_Parameter1>
     </AssemblyAttribute>
     <AssemblyAttribute Include="System.Runtime.CompilerServices.InternalsVisibleTo">
-      <_Parameter1>ArcTests</_Parameter1>
+        <_Parameter1>ArcTestsApis</_Parameter1>
     </AssemblyAttribute>
-  </ItemGroup>
+    <AssemblyAttribute Include="System.Runtime.CompilerServices.InternalsVisibleTo">
+        <_Parameter1>ArcTests</_Parameter1>
+    </AssemblyAttribute>
+</ItemGroup>
+```
+
+### In 'ArcTestsServices.csproj' add the following 
+```
+<ItemGroup>
+    <AssemblyAttribute Include="System.Runtime.CompilerServices.InternalsVisibleTo">
+        <_Parameter1>ArcTestsApis</_Parameter1>
+    </AssemblyAttribute>
+    <AssemblyAttribute Include="System.Runtime.CompilerServices.InternalsVisibleTo">
+        <_Parameter1>ArcTests</_Parameter1>
+    </AssemblyAttribute>
+</ItemGroup>
 ```
 
 ### Visibility 

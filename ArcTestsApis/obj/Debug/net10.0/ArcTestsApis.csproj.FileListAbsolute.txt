@@ -36,8 +36,6 @@ D:\_Desktop\Projects-Github\netarchtest\ArchTestDemo\ArcTestsApis\obj\Debug\net1
 D:\_Desktop\Projects-Github\netarchtest\ArchTestDemo\ArcTestsApis\obj\Debug\net10.0\ArcTestsApis.pdb
 D:\_Desktop\Projects-Github\netarchtest\ArchTestDemo\ArcTestsApis\obj\Debug\net10.0\ArcTestsApis.genruntimeconfig.cache
 D:\_Desktop\Projects-Github\netarchtest\ArchTestDemo\ArcTestsApis\obj\Debug\net10.0\ref\ArcTestsApis.dll
-D:\_Desktop\Projects-Github\netarchtest\ArcTestsApis\bin\Debug\net10.0\appsettings.Development.json
-D:\_Desktop\Projects-Github\netarchtest\ArcTestsApis\bin\Debug\net10.0\appsettings.json
 D:\_Desktop\Projects-Github\netarchtest\ArcTestsApis\bin\Debug\net10.0\ArcTestsApis.staticwebassets.endpoints.json
 D:\_Desktop\Projects-Github\netarchtest\ArcTestsApis\bin\Debug\net10.0\ArcTestsApis.exe
 D:\_Desktop\Projects-Github\netarchtest\ArcTestsApis\bin\Debug\net10.0\ArcTestsApis.deps.json
@@ -74,3 +72,6 @@ D:\_Desktop\Projects-Github\netarchtest\ArcTestsApis\obj\Debug\net10.0\refint\Ar
 D:\_Desktop\Projects-Github\netarchtest\ArcTestsApis\obj\Debug\net10.0\ArcTestsApis.pdb
 D:\_Desktop\Projects-Github\netarchtest\ArcTestsApis\obj\Debug\net10.0\ArcTestsApis.genruntimeconfig.cache
 D:\_Desktop\Projects-Github\netarchtest\ArcTestsApis\obj\Debug\net10.0\ref\ArcTestsApis.dll
+D:\_Desktop\Projects-Github\netarchtest\ArcTestsApis\bin\Debug\net10.0\Swashbuckle.AspNetCore.Swagger.dll
+D:\_Desktop\Projects-Github\netarchtest\ArcTestsApis\bin\Debug\net10.0\Swashbuckle.AspNetCore.SwaggerGen.dll
+D:\_Desktop\Projects-Github\netarchtest\ArcTestsApis\bin\Debug\net10.0\Swashbuckle.AspNetCore.SwaggerUI.dll
