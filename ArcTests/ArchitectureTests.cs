@@ -17,18 +17,18 @@ public class ArchitectureTests
 {
     //1. Entity Access Rules 
     [Test]
-    [Description(("Entities in ArcTestData.Entities that inherit from Entity must not be public"))]
+    [Description(("Entities in ArcTestsData.Entities that inherit from Entity must not be public"))]
 
     public void Entities_ShouldNotBe_Public()
     {
         var result = Types
             .InAssembly(typeof(Entity).Assembly)
             .That()
-            .ResideInNamespace("ArcTestData.Entities")
+            .ResideInNamespace("ArcTestsData.Entities")
             .And()
             .Inherit(typeof(Entity))
             .Should()
-            .NotBeAbstract()
+            .NotBePublic()
             .GetResult();
         result.IsSuccessful.Should().BeTrue(
             because: "All entities in ArcTestsData.Entities must be internal," +
@@ -38,7 +38,7 @@ public class ArchitectureTests
 
     //2. Repository Namespace Rules 
     [Test]
-    [Description("Any class implementing IRepository<>must live in ArcTestData.Repository")]
+    [Description("Any class implementing IRepository<>must live in ArcTestsData.Repository")]
     public void Repository_ShouldImplement_InRepositoriesNamespace()
     {
         var result = Types
@@ -46,20 +46,20 @@ public class ArchitectureTests
             .That()
             .ImplementInterface(typeof(IRepository<>))
             .Should()
-            .ResideInNamespace("ArcTestData.Repositories")
+            .ResideInNamespace("ArcTestsData.Repositories")
             .GetResult();
         result.IsSuccessful.Should().BeTrue(
             because: "All IRepository<> implementations must live in ArcTestsData.Repositories.");
     }
 
     [Test]
-    [Description("Classes in ArcTestData.Repositories must implement IRepository<> and be named *Repository.")]
+    [Description("Classes in ArcTestsData.Repositories must implement IRepository<> and be named *Repository.")]
     public void RepositoryClasses_ShouldImplement_IRepositoryAndHaveCorrectName()
     {
         var result = Types
             .InAssembly(typeof(Entity).Assembly)
             .That()
-            .ResideInNamespace("ArcTestData.Repositories")
+            .ResideInNamespace("ArcTestsData.Repositories")
             .And()
             .AreClasses()
             .Should()
@@ -106,12 +106,30 @@ public class ArchitectureTests
             because: "Only the service layer is allowed to depend on ArcTestsData.Repositories.");
 
     }
+    // 4. DOMAIN INDEPENDENCE RULE
+    [Test]
+    [Description("Data layer must not depend on any other layer.")]
+    public void DataLayer_ShouldNotDependOn_AnyOtherLayer()
+    {
+        var result = Types
+            .InAssembly(typeof(Entity).Assembly)
+            .ShouldNot()
+            .HaveDependencyOnAny(
+                "ArcTestsServices",
+                "ArcTestsApis"
+            )
+            .GetResult();
 
-    //4. Policy-style combined tests 
+        result.IsSuccessful.Should().BeTrue(
+            because: "The data layer is the core of the architecture " +
+                     "and must not reference any other layer.");
+    }
+
+    //5. Policy-style combined tests 
     //combines entity accessor, repository interface, and namespace rules 
     //into a single parameterized NUnit test
     public static readonly PolicyDefinition dataLayerPolicy=
-        Policy.Define("DAta Layer design Policy", "A policy to ensure data layer is enforced")
+        Policy.Define("Data Layer design Policy", "A policy to ensure data layer is enforced")
             .For(Types.InAssembly(typeof(IRepository<>).Assembly))
             .Add(
                 t => t.That()
@@ -134,6 +152,14 @@ public class ArchitectureTests
             )
             .Add(t =>
                     t.That()
+                        .ResideInNamespace("ArcTestsData")
+                        .ShouldNot()
+                        .HaveDependencyOnAny("ArcTestsServices", "ArcTestsApis"),
+                "Data layer must not reference any other layer",
+                "ArcTestsData must have zero dependencies on Services or Apis"
+            )
+            .Add(t =>
+                    t.That()
                         .HaveNameEndingWith("Repository")
                         .Or()
                         .ImplementInterface(typeof(IRepository<>))
@@ -147,7 +173,7 @@ public class ArchitectureTests
 
     private static readonly PolicyDefinition dataLayerAccessPolicy =
         Policy.Define("Data Layer access policy", "A policy to ensure data layer access is enforced")
-            .For(Types.InAssembly(typeof(IRepository<>).Assembly))
+            .For(Types.InAssembly(typeof(ProductsController).Assembly))
             .Add(t => t.That()
                     .ResideInNamespace("ArcTestsApis.Controllers")
                     .ShouldNot()
